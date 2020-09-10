@@ -95,6 +95,9 @@ func SetupLitePath(ctx Context, config Config) {
 	prebuiltsPath, _ := filepath.Abs("prebuilts/build-tools/path/" + runtime.GOOS + "-x86")
 	myPath = prebuiltsPath + string(os.PathListSeparator) + myPath
 
+	reloadedPrebuiltsPath, _ := filepath.Abs("prebuilts/tools-reloaded/path/" + runtime.GOOS + "-x86")
+	myPath = reloadedPrebuiltsPath + string(os.PathListSeparator) + myPath
+
 	config.Environment().Set("PATH", myPath)
 	config.pathReplaced = true
 }
